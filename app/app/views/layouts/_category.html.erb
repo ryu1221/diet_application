@@ -1,0 +1,52 @@
+<section class="l-header__main">
+  <h1 class="l-header__main__heading slide">体型が変われば、人生が変わる</h1>
+  <a class="l-header__main__btn">ジャンルから選ぶ</a>
+</section>
+
+<section class="category">
+  <section class="category__contents">
+
+    <%= link_to '/food' do %>
+      <div class="category__contents__content">
+        <img src="/category_images/food.jpg" class="category__contents__content__image" >
+        <h3 class="category__contents__content__heading">Food</h3>
+      </div>
+    <% end %>
+
+    <%= link_to '/drink' do %>
+      <div class="category__contents__content">
+        <img src="/category_images/drink.jpg" class="category__contents__content__image" >
+        <h3 class="category__contents__content__heading">Drink</h3>
+      </div>
+    <% end %>
+
+    <%= link_to '/sweets' do %>
+      <div class="category__contents__content">
+        <img src="/category_images/sweets.jpg" class="category__contents__content__image" >
+        <h3 class="category__contents__content__heading">Sweets</h3>
+      </div>
+    <% end %>
+
+    <%= link_to '/suporters' do %>
+      <div class="category__contents__content">
+        <img src="/category_images/suporter.jpg" class="category__contents__content__image" >
+        <h3 class="category__contents__content__heading">Suporter</h3>
+      </div>
+    <% end %> 
+
+    <%= link_to '/equipments' do %>
+      <div class="category__contents__content">
+        <img src="/category_images/equipment.jpg" class="category__contents__content__image" >
+        <h3 class="category__contents__content__heading">Equipment</h3>
+      </div>
+    <% end %>
+
+    <%= link_to '/others' do %>
+      <div class="category__contents__content">
+        <img src="/category_images/others.jpg" class="category__contents__content__image" >
+        <h3 class="category__contents__content__heading">Others</h3>
+      </div>
+    <% end %>
+
+  </section>
+</section>
