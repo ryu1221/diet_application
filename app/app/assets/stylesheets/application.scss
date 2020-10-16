@@ -13,11 +13,11 @@
 *= require_tree .
 *= require_self
 */
- @import "parts";
- @import "mixin";
+@import "parts";
+@import "mixin";
 
 
- body{
+body{
   margin: 0;
   user-select: none;
 }
