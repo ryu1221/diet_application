@@ -240,3 +240,117 @@
     }
   }
 }
+
+
+
+// ページネーション 
+.pagination{
+  list-style: none;
+  // display: flex;
+  padding: 0;
+  margin: 70px auto 20px;
+  width: 1100px;
+  @include media(1100px){
+    width: 900px;
+  }
+  @include media(900px){
+    width: 768px;
+  }
+  @include media(768px){
+    width: 700px;
+  }
+  @include media(414px){
+    width: 375px;
+  }
+  @include media(375px){
+    width: 350px;
+  }
+}
+
+.page.current{
+  padding: 6px 12px;
+  background: $blue;  
+  display: inline-block;    
+  border-radius: 50%;  
+  color: $white;
+}
+
+.page>a{
+  color: $gray;  
+  display: inline-block; 
+  padding: 6px 12px;
+  background: $white;
+  transition: .4s;
+  border-radius: 1px;
+  
+  &:hover{
+    border-radius: 50%;    
+  }
+}
+.next>a{
+  color: $gray;  
+  display: inline-block; 
+  padding: 6px 12px;
+  background: $white;
+  transition: .4s;
+  border-radius: 1px;
+  
+  &:hover{
+    border-radius: 50%;    
+  }
+}
+.last>a{
+  color: $gray;  
+  display: inline-block; 
+  padding: 6px 12px;
+  background: $white;
+  transition: .4s;
+  border-radius: 1px;
+  
+  &:hover{
+    border-radius: 50%;    
+  }
+}
+.prev>a{
+  color: $gray;  
+  display: inline-block; 
+  padding: 6px 12px;
+  background: $white;
+  transition: .4s;
+  border-radius: 1px;
+  
+  &:hover{
+    border-radius: 50%;    
+  }
+}
+.first>a{
+  color: $gray;  
+  display: inline-block; 
+  padding: 6px 12px;
+  background: $white;
+  transition: .4s;
+  border-radius: 1px;
+  
+  &:hover{
+    border-radius: 50%;    
+  }
+}
+
+
+
+.pagination>li>a {            
+  color: $gray;  
+  display: inline-block; 
+  padding: 6px 12px;
+  background: $white;
+  transition: .4s;
+  border-radius: 1px;
+}
+
+
+.pagination>.current>.page {     
+  background: $blue;     
+  border-radius: 50%;  
+  color: $white;   
+}
+
