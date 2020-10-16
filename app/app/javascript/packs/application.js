@@ -15,3 +15,52 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+window.addEventListener('load', (event) => {
+
+  // ハンバーガーメニュー
+  const headerBtn = document.querySelector('.fa-bars');
+  const headerRightTexts = document.querySelector('.l-header__top__right__texts');
+  headerBtn.addEventListener('click', ()=> {
+    headerRightTexts.classList.toggle('active');
+    headerBtn.classList.toggle('active');
+  });
+
+
+
+  // ジャンル選択スライド
+  const headerRankBtn = document.querySelector('.l-header__top__right__texts__nav__heading');
+  const headerRankLists = document.querySelector('.l-header__top__right__texts__nav__lists');
+  headerRankBtn.addEventListener('click', () => {
+    headerRankLists.classList.toggle('active');
+    if (headerRankLists.classList.contains('active')){
+      headerRankBtn.style.fontWeight = "bold"
+    } else {
+      headerRankBtn.style.fontWeight = "normal"
+    }
+  });
+
+
+  // 「体型が変われば、人生が変わる」スライド
+  const categoryBtn = document.querySelector('.l-header__main__btn');
+  const category = document.querySelector('.category__contents');
+
+  categoryBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    category.classList.toggle('active');
+    
+    if (category.classList.contains('active')){
+      categoryBtn.textContent = "閉じる";
+    } else {
+      categoryBtn.textContent = "ジャンルから選ぶ"
+    };
+  });
+
+  const slide = document.querySelector('.slide');
+  setTimeout(() => {
+    slide.classList.add('active');
+  }, 100);
+
+  
+  
+});
