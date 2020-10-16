@@ -377,7 +377,7 @@ body{
 // <%= yield %>部分
 .contents{
   background: $whiteGray;
-  padding:50px 0;
+
 }
 
 
@@ -408,8 +408,22 @@ a{
 
 // flash部分
 .flash{
-  background: $whiteblue;
+  background: $pink;
   color: $white;
   padding: 15px 0;
   text-align: center;
+}
+
+
+.errors{
+  margin: 0 0 30px;
+  
+  &__messages{
+    background:rgba($color: $whiteblue, $alpha: 0.4);
+    border: 4px solid rgba($color: $whiteblue, $alpha: 0.7);
+    border-radius: 3px;
+    list-style: none;
+    margin: 0 0 5px;
+    padding: 10px;
+  }
 }
