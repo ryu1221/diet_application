@@ -1,4 +1,6 @@
 class Rank < ApplicationRecord
+  belongs_to :users, optional: true
+  
   GENRES = {
     ranks: 100984,
     food: 111903,

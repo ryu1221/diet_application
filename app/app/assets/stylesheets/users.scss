@@ -1,3 +1,71 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "parts";
+@import "mixin";
+
+
+// ログイン、新規登録
+.new{
+  padding: 100px 0;
+  width: 360px;
+  margin: 0 auto;
+
+  &__heading{
+
+    &__text{
+      color: rgba($color: $gray, $alpha: 0.7);
+      font-size: 35px;
+    }
+  }
+
+  // form全体
+  .form_class{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // ログインinput部分
+    #email{
+      @include newBox
+    }
+    #password{
+      @include newBox
+    }
+
+    // 新規登録input部分
+    #user_name{
+      @include newBox
+    }
+    #user_email{
+      @include newBox
+    }
+    #user_password{
+      @include newBox
+    }
+
+    // ログイン、新規登録ボタン
+    .submit{
+      width: 150px;
+      height: 40px;
+      border: none;
+      cursor: pointer;
+      transition: .7s;
+      margin: 20px auto 0;
+      color: $white;
+      background: $pink;
+      border-radius: 3px;
+      box-shadow: 2px 2px 3px rgba($color: #000000, $alpha: 0.3);
+
+      &:hover{
+        opacity: 0.8;
+      }
+
+      &:active{
+        position: relative;
+        left: 2px;
+        box-shadow: none;
+      }
+    }
+  }
+}
