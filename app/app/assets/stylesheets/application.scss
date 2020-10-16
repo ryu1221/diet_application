@@ -15,3 +15,375 @@
 */
  @import "parts";
  @import "mixin";
+
+
+ body{
+  margin: 0;
+  user-select: none;
+}
+
+.container{
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
+
+// header全体部分
+.l-header__top{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  color: $white;
+  background: $white;
+  position: fixed;
+  z-index: 10;
+  
+
+  // header-left部分
+  &__left{
+    margin-left: 40px;
+    line-height: 70px;
+    @include media(414px){
+      margin-left: 10px;
+    }
+
+    &__heading{
+      margin: 0;
+      color: $gray;
+      @include media(414px){
+        font-size: 18px;
+      }
+    }
+
+    .fa-apple-alt{
+      color: $pink;
+      margin-right: 10px;
+      @include media(414px){
+        margin-right: 5px;
+      }
+    }
+  }
+
+  
+
+
+  // header-right部分
+  &__right{
+    position: relative;
+    z-index: 1;
+    background: rgba($color: $white, $alpha: 0.9);
+  
+    &__bars{
+      line-height: 30px;
+      text-align: center;
+    
+      .menu{
+        @include headerHeading;
+        line-height: 70px;
+        color: $gray;
+        font-size: 20px;
+        transform: translateX(50px);
+  
+        &.active{
+          transform: translateX(0px);
+        }
+      }
+    }
+  
+    &__texts{
+      line-height: 30px;
+      background: rgba($color: $white, $alpha: 0.9);
+      transition: .5s;
+      transform: translateX(300px);
+      
+  
+      &.active{
+        transform: translateX(0);
+      }
+      
+      
+      &__nav{
+
+        // header-rightランキング部分
+        &__heading{
+          @include headerHeading;
+          color: $gray;
+          line-height: 70px;
+          padding: 0 50px;
+          
+          @include media(414px){
+            font-size: 14px;
+          }
+        
+          &:hover{
+            background: rgba($color: $gray, $alpha: 0.2);
+          }
+
+          .fa-crown{
+            margin-right: 5px;
+          }
+        }
+
+        // header-rightランキングのリスト部分
+        &__lists{
+          @include headerRankingLists;
+          background: rgba($color: $white, $alpha: 0.1);
+          border-bottom: 1px solid rgba($color: $gray, $alpha: 0.2);
+          width: 0;
+          height: 0;
+          transform: translateX(260px);
+        
+          &.active{
+            width: 60%;
+            height: auto;
+            transform: translateX(0px);
+          }
+      
+          &__list{
+            font-size: 14px;
+            color: $gray;
+            transition: .5s;
+            @include media(414px){
+              font-size: 13px;
+            }
+          
+           &:hover{
+              background: rgba($color: $gray, $alpha: 0.2);
+              border-radius: 2px;
+            }
+          }
+        }
+      }
+
+      // header-rightランキング以降の部分(商品検索、ログイン、マイページなど)
+      &__lists__heading{
+        @include headerHeading;
+        color: $gray;
+        line-height: 70px;
+        padding: 0 50px;
+
+        &:hover{
+          background: rgba($color: $gray, $alpha: 0.2);
+        }
+      }
+    }
+  }
+}
+
+
+// mv部分
+.l-header__main{
+  height: 300px;
+  background-image: url("/header-images/header2.png");
+  text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+  padding-top: 70px;
+  @include maxImage;
+
+  
+  // 体型が変われば、人生が変わる部分
+  &__heading{
+    margin: 0;
+    color: $white;
+    font-size: 40px;
+    position: relative;
+    top: 100px;
+    @include media(414px){
+      font-size: 28px;
+    }
+    @include media(375px){
+      font-size: 26px;
+    }
+  }
+
+  // 体型が変われば、人生が変わるをスライドさせる(javascriptを用いて)
+  .slide{
+    opacity: 0;
+    transition: 1s;
+    transform: translateX(-900px);
+  
+    &.active{
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  // 「ジャンルから選ぶ」ボタン
+  &__btn{
+    @include btn;
+    color: $white;
+    background-color: $pink;
+    position: relative;
+    top: 150px;
+    box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.3);
+    cursor: pointer;
+  
+    &:active{
+      position: relative;
+      right: -2px;
+      box-shadow: none;
+    }
+  }
+}
+
+
+
+
+// カテゴリー一覧部分
+.category{
+  background: $whiteGray;
+
+  &__contents{
+    width: 1250px;
+    margin: 0 auto ;
+    padding:0 0 50px;
+    display: none;
+    @include media(1250px){
+      width: 1100px;
+    }
+    @include media(1100px){
+      width: 900px;
+    }
+    @include media(900px){
+      width: 768px;
+    }
+    @include media(768px){
+      width: 700px;
+    }
+    @include media(414px){
+      width: 375px;
+    }
+    @include media(375px){
+      width: 360px;
+    }
+    
+
+    // 「ジャンルから選ぶ」ボタンをクリックするとカテゴリー出現(javascriptを用いて)
+    &.active{
+      display: grid;
+      grid-template-rows: repeat(1,220px);
+      grid-template-columns: repeat(6, 200px);
+      gap: 10px;
+
+      @include media(1250px){
+        grid-template-rows: repeat(1,175px);
+        grid-template-columns: repeat(6, 175px);
+        gap: 10px;
+      }
+      @include media(1100px){
+        grid-template-rows: repeat(1,145px);
+        grid-template-columns: repeat(6, 145px);
+        gap: 6px;
+      }
+      @include media(900px){
+        grid-template-rows: repeat(2,190px);
+        grid-template-columns: repeat(3, 240px);
+        gap: 24px;
+      }
+      @include media(768px){
+        grid-template-rows: repeat(2,170px);
+        grid-template-columns: repeat(3, 220px);
+        gap: 5px;
+      }
+      @include media(414px){
+        grid-template-rows: repeat(2,120px);
+        grid-template-columns: repeat(3, 120px);
+        gap: 8px;
+      }
+      @include media(375px){
+        grid-template-rows: repeat(2,120px);
+        grid-template-columns: repeat(3, 115px);
+        gap: 7px;
+      }
+    }
+
+
+    // 各カテゴリー
+    &__content{
+      border-radius:10px;
+      @include border;
+      box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.1);
+      
+      &__image{
+        width: 200px;
+        height: 150px;
+        border-radius: 10px 10px 0 0;
+        @include media(1250px){
+          width: 175px;
+          height: 125px;
+        }
+        @include media(1100px){
+          width: 143px;
+          height: 100px;
+        }
+        @include media(900px){
+          width: 238px;
+          height: 150px;
+        }
+        @include media(768px){
+          width: 218px;
+          height: 130px;
+        }
+        @include media(414px){
+          width: 118px;
+          height: 90px;
+        }
+        @include media(375px){
+          width: 113px;
+          height: 90px;
+        }
+        
+      }
+      &__heading{
+        text-align: center;
+        color: $gray;
+        font-weight: normal;
+        letter-spacing: 1.5px;
+        @include media(1250px){
+          font-size: 16px;
+          margin: 10px;
+        }
+        @include media(1100px){
+          font-size: 14px;
+          margin: 5px;
+        }
+        @include media(900px){
+          font-size: 12px;
+          margin: 5px;
+        }
+        @include media(768px){
+          font-size: 12px;
+          margin: 5px;
+        }
+        @include media(414px){
+          font-size: 11px;
+          margin: 2px;
+        }
+        @include media(375px){
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+// <%= yield %>部分
+.contents{
+  background: $whiteGray;
+  padding:0 0 50px;
+}
+
+
+
+// link_toの下線消す
+a{
+  text-decoration: none;
+}

@@ -1,0 +1,76 @@
+<header class="l-header">
+  <section class="l-header__top">
+    <div class="l-header__top__left">
+      <%= link_to("/ranks", data: {"turbolinks" => false}) do %>
+        <h2 class="l-header__top__left__heading"><i class="fas fa-apple-alt"></i>ZeroCalo</h2>
+      <% end %>
+    </div>
+
+    <div class="l-header__top__right">
+      <div class="l-header__top__right__bars">
+        <i class="fas fa-bars menu"></i>
+      </div>
+      <div class="l-header__top__right__texts">
+        <nav class="l-header__top__right__texts__nav">
+          <p class="l-header__top__right__texts__nav__heading"><i class="fas fa-crown"></i>ランキング</p>
+          <ul class="l-header__top__right__texts__nav__lists">
+
+            <%= link_to( "/ranks") do %>
+              <li class="l-header__top__right__texts__nav__lists__list">ALL</li>
+            <% end %>
+            <%= link_to( "/food") do %>
+              <li class="l-header__top__right__texts__nav__lists__list">FOOD</li>
+            <% end %>
+            <%= link_to( "/drink") do %>
+              <li class="l-header__top__right__texts__nav__lists__list">DRINK</li>
+            <% end %>
+            <%= link_to( "/sweets") do %>
+              <li class="l-header__top__right__texts__nav__lists__list">SWEETS</li>
+            <% end %>
+            <%= link_to( "/suporters") do %>
+              <li class="l-header__top__right__texts__nav__lists__list">SUPORT</li>
+            <% end %>
+            <%= link_to( "/equipments") do %>
+              <li class="l-header__top__right__texts__nav__lists__list">EQUIPMENT</li>
+            <% end %>
+            <%= link_to( "/others") do %>
+              <li class="l-header__top__right__texts__nav__lists__list">OTHERS</li>
+            <% end %>
+          </ul>
+
+        </nav>
+
+          <%= link_to "ranks" do%>
+            <div class="l-header__top__right__texts__lists">
+              <p class="l-header__top__right__texts__lists__heading">商品検索</p>
+            </div>
+          <% end %>
+        
+        
+        <% if session[:user_id] %>
+          <%= link_to "ranks" ,{method: "delete"} do%>
+            <div class="l-header__top__right__texts__lists">
+              <p class="l-header__top__right__texts__lists__heading">ログアウト</p>
+            </div>
+          <% end %>
+          <%= link_to "ranks" do%>
+            <div class="l-header__top__right__texts__lists">
+              <p class="l-header__top__right__texts__lists__heading">マイページ</p>
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to "ranks" do%>
+            <div class="l-header__top__right__texts__lists">
+              <p class="l-header__top__right__texts__lists__heading">新規登録</p>
+            </div>
+          <% end %>
+          <%= link_to "ranks" do%>
+            <div class="l-header__top__right__texts__lists">
+              <p class="l-header__top__right__texts__lists__heading">ログイン</p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</header>
