@@ -238,7 +238,7 @@ body{
 
   &__contents{
     width: 1250px;
-    margin: 0 auto ;
+    margin: 50px auto 0;
     padding:0 0 50px;
     display: none;
     @include media(1250px){
