@@ -1,3 +1,242 @@
 // Place all the styles related to the ranks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+@import "parts";
+@import "mixin";
+
+// index全体部分
+.index{
+  width: 1100px;
+  margin: 0 auto ;
+  display: grid;
+  grid-template-rows: repeat(5,400px);
+  grid-template-columns: repeat(4, 240px);
+  gap: 40px;
+  transition: 1s;
+  opacity: 0;
+  transform: translateY(-70px);
+  @include media(1100px){
+    width: 900px;
+    grid-template-rows: repeat(5,350px);
+    grid-template-columns: repeat(4, 200px);
+    gap:30px;
+  }
+  @include media(900px){
+    width: 768px;
+    grid-template-rows: repeat(10,450px);
+    grid-template-columns: repeat(3, 240px);
+    gap:18px;
+  }
+  @include media(768px){
+    width: 700px;
+    grid-template-rows: repeat(10,400px);
+    grid-template-columns: repeat(3, 220px);
+    gap:20px;
+  }
+  @include media(414px){
+    width: 375px;
+    grid-template-rows: repeat(30,480px);
+    grid-template-columns: repeat(1, 350px);
+    gap:0px;
+  }
+  @include media(375px){
+    width: 350px;
+    grid-template-rows: repeat(30,500px);
+    grid-template-columns: repeat(1, 350px);
+    gap:0px;
+  }
+
+  // index出現(javascriptを用いて)
+  &.active{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+// 順位部分
+.ranks{
+
+  &__rank{
+    margin: 0;
+    color: $red;
+    font-size: 20px;
+  }
+
+  &__i{
+    font-size: 15px;
+  }
+}
+
+
+// 各商品部分
+.index__contents__content{
+  
+  // 商品画像
+  &__images{
+    width: 240px;
+    height: 200px;
+    padding: 10px;
+    text-align: center;
+    background: $whiteGray;
+    border-radius: 5px 5px 0 0;
+    @include border;
+    @include media(1100px){
+      width: 200px;
+      height: 160px;
+    }
+    @include media(900px){
+      width: 230px;
+      height: 220px;
+    }
+    @include media(768px){
+      width: 210px;
+      height: 200px;
+    }
+    @include media(414px){
+      width: 350px;
+      height: 240px;
+    }
+    @include media(375px){
+      width: 330px;
+      height: 240px;
+    }
+
+    &__image{
+      width: 220px;
+      height: 200px;
+      transition: .3s;
+      @include media(1100px){
+        width: 180px;
+        height: 160px;
+      }
+      @include media(900px){
+        width: 230px;
+        height: 220px;
+      }
+      @include media(768px){
+        width: 210px;
+        height: 200px;
+      }
+      @include media(414px){
+        width: 250px;
+        height: 240px;
+      }
+      
+
+      &:hover{
+        opacity: 0.6;
+      }
+    }
+  }
+
+  // 商品情報(商品名、価格、レビュー)
+  &__texts{
+    width: 240px;
+    height: 130px;
+    padding: 10px;
+    background: $white;
+    border-radius: 0 0 5px 5px;
+    border: {
+      right: 1px solid rgba($color: $gray, $alpha: 0.2);
+      left: 1px solid rgba($color: $gray, $alpha: 0.2);
+      bottom: 1px solid rgba($color: $gray, $alpha: 0.2);
+    }
+    @include media(1100px){
+      width: 200px;
+      height: 110px;
+    }
+    @include media(900px){
+      width: 230px;
+      height: 130px;
+    }
+    @include media(768px){
+      width: 210px;
+      height: 130px;
+    }
+    @include media(414px){
+      width: 350px;
+      height: 135px;
+    }
+    @include media(375px){
+      width: 330px;
+      height: 140px;
+    }
+
+    // 商品名
+    &__text{
+      font-weight: normal;
+      font-size: 13px;
+      height: 40px;
+      color: $blue;
+      @include media(1100px){
+        font-size: 11px;
+      }
+      @include media(900px){
+        font-size: 12px;
+      }
+      @include media(414px){
+        font-size: 16px;
+      }
+    }
+
+    // 価格+レビュー(CSS調整)
+    .price_review{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      @include media(1100px){
+        margin-top: 30px;
+      }
+      @include media(900px){
+        margin-top: 45px;
+      }
+    }
+
+    // 価格
+    &__price{
+      font-size: 13px;
+      color: $red;
+      @include media(1100px){
+        font-size: 10px;
+      }
+    }
+    
+    // 円
+    .fee{
+      font-size: 20px;
+      @include media(1100px){
+        font-size: 16px;
+      }
+      @include media(900px){
+        font-size: 18px;
+      }
+      @include media(414px){
+        font-size: 20px;
+      }
+    }
+
+
+    // レビュー
+    &__review{
+      font-size: 18px;
+      color: $yellow;
+      @include media(1100px){
+        font-size: 14px;
+      }
+      @include media(900px){
+        font-size: 16px;
+      }
+      @include media(414px){
+        font-size: 18px;
+      }
+    }
+
+    // MAXレビュー(?/5)
+    .reviewMax{
+      font-size: 10px;
+    }
+  }
+}

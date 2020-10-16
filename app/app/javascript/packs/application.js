@@ -41,7 +41,7 @@ window.addEventListener('load', (event) => {
   });
 
 
-  // 「体型が変われば、人生が変わる」スライド
+  // ジャンル選択ボタン
   const categoryBtn = document.querySelector('.l-header__main__btn');
   const category = document.querySelector('.category__contents');
 
@@ -56,10 +56,19 @@ window.addEventListener('load', (event) => {
     };
   });
 
+
+
+  // 「体型が変われば、人生が変わる」スライド
   const slide = document.querySelector('.slide');
   setTimeout(() => {
     slide.classList.add('active');
   }, 100);
+
+  // 商品一覧(index)スライド
+  const index = document.querySelector('.index');
+  setTimeout(() => {
+    index.classList.add('active');
+  }, 1000);
 
   
   

@@ -180,7 +180,6 @@ body{
   background-image: url("/header-images/header.png");
   text-align: center;
   position: relative;
-  margin-bottom: 50px;
   padding-top: 70px;
   @include maxImage;
 
@@ -378,7 +377,7 @@ body{
 // <%= yield %>部分
 .contents{
   background: $whiteGray;
-  padding:0 0 50px;
+  padding:50px 0;
 }
 
 
