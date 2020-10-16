@@ -1,0 +1,64 @@
+@mixin headerHeading{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+  transition: .5s;
+}
+
+@mixin headerRankingLists{
+  list-style: none;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  padding: 0 40px;
+  text-align: center;
+  transition: .5s;
+}
+
+@mixin maxImage{
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin border{
+  border: 1px solid rgba($color: $gray, $alpha: 0.2);
+}
+
+@mixin btn($width:170px, $height:40px){
+  width: $width;
+  height: $height;
+  line-height: $height;
+  border-radius: 3px;
+  text-align: center;
+  display: inline-block;
+}
+
+@mixin center{
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin media($max-width:375px){
+  @media(max-width: $max-width){
+    @content;
+  }
+}
+
+@mixin newBox{
+  border: none;
+  width: 350px;
+  padding: 10px 0;
+  margin: 0 0 20px;
+  border-radius: 2px;
+  text-align: center;
+  box-shadow: 2px 2px 3px rgba($color: #000000, $alpha: 0.3);
+}
