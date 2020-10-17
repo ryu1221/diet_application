@@ -5,6 +5,282 @@
 @import "mixin";
 
 
+.mypage__info{
+  width: 1100px;
+  text-align: center;
+  margin: 0 auto 70px;
+  padding: 70px 0 0;
+
+  @include media(1100px){
+    width: 900px;
+  }
+  @include media(900px){
+    width: 768px;
+  }
+  @include media(768px){
+    width: 700px;
+  }
+  @include media(414px){
+    width: 375px;
+  }
+  @include media(375px){
+    width: 350px;
+  }
+  
+  // アカウント名
+  &__names__name{
+    margin: 0;
+    font-size: 40px;
+
+    .mini{
+      font-size: 20px;
+      font-weight: normal;
+    }
+  }
+
+  // お気に入り数
+  &__favorite{
+    margin: 20px 0 0;
+    color: $gray;
+
+    &__heading{
+      margin: 0;
+    }
+
+    &__texts{
+      margin: 20px 0px 0 0;
+      display: flex;
+      justify-content: center;
+
+      &__text{
+        margin: 0 0px 0 0;
+      }
+
+      &__count{
+        margin: 0;
+      }
+    }
+  }
+}
+
+
+// お気に入りした商品index
+.mypage__index{
+  width: 1100px;
+  margin: 0 auto ;
+  display: grid;
+  grid-template-rows: repeat(auto, 400px);
+  grid-template-columns: repeat(4, 240px);
+  gap: 40px;
+
+  @include media(1100px){
+    width: 900px;
+    grid-template-rows: repeat(auto,350px);
+    grid-template-columns: repeat(4, 200px);
+    gap:30px;
+  }
+  @include media(900px){
+    width: 768px;
+    grid-template-rows: repeat(auto,450px);
+    grid-template-columns: repeat(3, 240px);
+    gap:18px;
+  }
+  @include media(768px){
+    width: 700px;
+    grid-template-rows: repeat(auto,400px);
+    grid-template-columns: repeat(3, 220px);
+    gap:20px;
+  }
+  @include media(414px){
+    width: 375px;
+    grid-template-rows: repeat(auto,480px);
+    grid-template-columns: repeat(1, 350px);
+    gap:0px;
+  }
+  @include media(375px){
+    width: 350px;
+    grid-template-rows: repeat(auto,500px);
+    grid-template-columns: repeat(1, 350px);
+    gap:0px;
+  }
+
+  &.active{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+// 各お気に入り商品部分
+.mypage__index__contents__content{
+  
+  // 商品画像
+  &__images{
+    width: 240px;
+    height: 200px;
+    padding: 10px;
+    text-align: center;
+    background: $whiteGray;
+    border-radius: 5px 5px 0 0;
+    @include border;
+    @include media(1100px){
+      width: 200px;
+      height: 160px;
+    }
+    @include media(900px){
+      width: 230px;
+      height: 220px;
+    }
+    @include media(768px){
+      width: 210px;
+      height: 200px;
+    }
+    @include media(414px){
+      width: 350px;
+      height: 240px;
+    }
+    @include media(375px){
+      width: 330px;
+      height: 240px;
+    }
+
+    &__image{
+      width: 220px;
+      height: 200px;
+      transition: .3s;
+      @include media(1100px){
+        width: 180px;
+        height: 160px;
+      }
+      @include media(900px){
+        width: 230px;
+        height: 220px;
+      }
+      @include media(768px){
+        width: 210px;
+        height: 200px;
+      }
+      @include media(414px){
+        width: 250px;
+        height: 240px;
+      }
+      
+
+      &:hover{
+        opacity: 0.6;
+      }
+    }
+  }
+
+  // 商品情報(商品名、価格、レビュー)
+  &__texts{
+    width: 240px;
+    height: 130px;
+    padding: 10px;
+    background: $white;
+    border-radius: 0 0 5px 5px;
+    border: {
+      right: 1px solid rgba($color: $gray, $alpha: 0.2);
+      left: 1px solid rgba($color: $gray, $alpha: 0.2);
+      bottom: 1px solid rgba($color: $gray, $alpha: 0.2);
+    }
+    @include media(1100px){
+      width: 200px;
+      height: 110px;
+    }
+    @include media(900px){
+      width: 230px;
+      height: 130px;
+    }
+    @include media(768px){
+      width: 210px;
+      height: 130px;
+    }
+    @include media(414px){
+      width: 350px;
+      height: 135px;
+    }
+    @include media(375px){
+      width: 330px;
+      height: 140px;
+    }
+
+    // 商品名
+    &__text{
+      font-weight: normal;
+      font-size: 13px;
+      height: 40px;
+      color: $blue;
+      @include media(1100px){
+        font-size: 11px;
+      }
+      @include media(900px){
+        font-size: 12px;
+      }
+      @include media(414px){
+        font-size: 16px;
+      }
+    }
+
+    // 価格+レビュー(CSS調整)
+    .price_review{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      @include media(1100px){
+        margin-top: 30px;
+      }
+      @include media(900px){
+        margin-top: 45px;
+      }
+    }
+
+    // 価格
+    &__price{
+      font-size: 13px;
+      color: $red;
+      @include media(1100px){
+        font-size: 10px;
+      }
+    }
+    
+    // 円
+    .fee{
+      font-size: 20px;
+      @include media(1100px){
+        font-size: 16px;
+      }
+      @include media(900px){
+        font-size: 18px;
+      }
+      @include media(414px){
+        font-size: 20px;
+      }
+    }
+
+
+    // レビュー
+    &__review{
+      font-size: 18px;
+      color: $yellow;
+      @include media(1100px){
+        font-size: 14px;
+      }
+      @include media(900px){
+        font-size: 16px;
+      }
+      @include media(414px){
+        font-size: 18px;
+      }
+    }
+
+    // MAXレビュー(?/5)
+    .reviewMax{
+      font-size: 10px;
+    }
+  }
+}
+
+
 // ログイン、新規登録
 .new{
   padding: 100px 0;

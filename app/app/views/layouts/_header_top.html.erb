@@ -53,7 +53,7 @@
               <p class="l-header__top__right__texts__lists__heading">ログアウト</p>
             </div>
           <% end %>
-          <%= link_to "ranks" do%>
+          <%= link_to user_mypage_path(@current_user.id) do%>
             <div class="l-header__top__right__texts__lists">
               <p class="l-header__top__right__texts__lists__heading">マイページ</p>
             </div>

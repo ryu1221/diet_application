@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def mypage 
+    @user = User.find_by(id: @current_user);
+    @favorite_ranks = @user.favorite_ranks
+  end
+
 
   private
   def user_params
