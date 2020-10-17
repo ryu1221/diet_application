@@ -1,0 +1,26 @@
+<%= render 'layouts/category' %>
+
+<div class="search-result">
+  <p class="search-result__text">検索結果: <span class="search-result__genre"><%= params[:keyword]  %></span></p>
+</div>
+
+<section class="index">
+  <% @items.each do |item| %>
+    <%= link_to( item.url, :target=>["_blank"]) do %>
+      <div class="index__contents">
+        <div class="index__contents__content">
+          <div class="index__contents__content__images">
+            <img class="index__contents__content__images__image" src="<%= item.medium_image_urls[0] %>" >
+          </div>
+          <div class="index__contents__content__texts">
+            <h2 class="index__contents__content__texts__text"><%= truncate(item.name, length:60) %></h2>
+            <div class="price_review">
+              <p class="index__contents__content__texts__price"><span class="fee"><%= item.price %></span>円(税込)</p>
+              <p class="index__contents__content__texts__review"><%= item.review_average %><span class="reviewMax">/5</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</section>

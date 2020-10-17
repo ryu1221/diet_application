@@ -1,0 +1,11 @@
+<section class="goods-search">
+  <div class="goods-search__texts">
+    <p class="goods-search__texts__text">商品名</p>
+  </div>
+  <div class="goods-search__input">
+    <%= form_with url: search_list_goods_path, name: "keyword", class: "input", local: true do |f| %>
+      <%= f.text_field :keyword %> 
+      <button class="search-btn" type="submit" name="commit" value="" data-disable-with="">検索</button>
+    <% end %>
+  </div>
+</section>

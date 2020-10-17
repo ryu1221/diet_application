@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :users, only:[:new, :create] do
     get :mypage
   end
+  resources :goods, only:[] do
+    get :search, on: :collection
+    post :search_list, on: :collection
+  end
   resources :favorite, only: [:create, :destroy]
   
   get '/:genre' => 'ranks#index'
