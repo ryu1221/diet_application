@@ -9,7 +9,7 @@
 // index全体部分
 .index{
   width: 1100px;
-  margin: 0 auto ;
+  margin: 50px auto  0;
   display: grid;
   grid-template-rows: repeat(5,400px);
   grid-template-columns: repeat(4, 240px);
