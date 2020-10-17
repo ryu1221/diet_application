@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :authenticate_user, {only: [:destroy]}
+  before_action :forbid_login_user, {only: [:new, :create]}
 
   def new
   end
@@ -8,7 +10,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインに成功しました"
-      redirect_to("/ranks")
+      redirect_to(user_mypage_path(@user.id))
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       flash[:notice] = "ログインに失敗しました"
@@ -19,6 +21,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
-    redirect_to("/ranks")
+    redirect_to(new_session_path)
   end
 end
