@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only:[:new, :create] do
     get :mypage
   end
+  resources :favorite, only: [:create, :destroy]
   
   get '/:genre' => 'ranks#index'
   get '/:genre/:id' => 'ranks#show'
