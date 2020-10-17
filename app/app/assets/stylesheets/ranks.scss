@@ -354,3 +354,201 @@
   color: $white;   
 }
 
+
+
+
+// 商品詳細(show)
+.show{
+  width: 1200px;
+  margin: 0 auto ;
+  padding: 50px;
+  @include media(1250px){
+    width: 1100px;
+  }
+  @include media(1100px){
+    width: 900px;
+  }
+  @include media(900px){
+    width: 768px;
+  }
+  @include media(768px){
+    width: 700px;
+  }
+  @include media(414px){
+    width: 375px;
+    padding:50px 0 0;
+  }
+  @include media(375px){
+    width: 360px;
+  }
+
+  // 商品情報(商品名、価格、レビュー、商品説明)
+  &__contents{
+    margin-top: 100px;
+    display: flex;
+    padding: 50px;
+    border-radius: 5px;
+    @include border;
+    @include media(900px){
+      display: block;
+    }
+    @include media(414px){
+      padding: 10px;
+    }
+
+    // 画像
+    &__images{
+      @include center;
+      @include media(900px){
+        text-align: center;
+      }
+
+      &__image{
+        width: 300px;
+        @include media(900px){
+          width: 400px;
+        }
+        @include media(414px){
+          width: 340px;
+        }
+        @include media(375px){
+          width: 330px;
+        }
+      }
+    }
+
+    // 商品名
+    &__texts{
+      width: 800px;
+      margin-left: 50px;
+      @include media(900px){
+        margin: 0;
+        width: 666px;
+      }
+      @include media(768px){
+        width: 600px;
+      }
+      @include media(414px){
+        width: 350px;
+      }
+      @include media(375px){
+        width: 340px;
+      }
+
+      &__heading{
+        margin: 0;
+        font-size: 20px;
+        @include media(1250px){
+          font-size: 16px;
+        }
+        @include media(900px){
+          font-size: 20px;
+          margin-top: 20px;
+        }
+      }
+
+      // 価格+レビュー(CSS調整)
+      .price_review{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        @include media(1250px){
+          margin: 0;
+        }
+      }
+
+      // 価格
+      &__price{
+        color: $red;
+      }
+
+      // 送料無料
+      .send-fee{
+        color: $red;
+        margin-left: 10px;
+        font-weight: bold;
+      }
+
+      // 円
+      .fee{
+        font-size: 25px;
+      }
+
+      // レビュー
+      &__review{
+        color: $yellow;
+        font-size: 22px;
+      }
+      .reviewMax{
+        font-size: 13px;
+      }
+
+      // お気に入り機能
+      &__favorite{
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .favorite-button{
+        border: none;
+        background: none;
+      }
+
+      .fa-thumbs-up{
+        color: $pink;
+      }
+
+      // 商品説明
+      &__info{
+        font-size: 14px;
+        @include media(1250px){
+          font-size: 12px;
+        }
+        @include media(900px){
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+
+// 商品の楽天リンク
+.rakuten{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  
+  &__btn{
+    color: $white;
+    background-color: $red;
+    @include btn(400px,100px);
+    @include media(414px){
+      @include btn(375px,100px);
+    }
+    @include media(375px){
+      @include btn(350px,100px);
+    }
+  }
+  
+}
+
+// indexに戻るボタン
+.return{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  
+  &__btn{
+    color: $white;
+    background-color: $whiteblue;
+    @include btn(400px,100px);
+    @include media(414px){
+      @include btn(375px,100px);
+    }
+    @include media(375px){
+      @include btn(350px,100px);
+    }
+  }
+}

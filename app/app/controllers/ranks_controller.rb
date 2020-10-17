@@ -25,4 +25,9 @@ class RanksController < ApplicationController
     @rankings = Kaminari.paginate_array(ranking_array, total_count: 100).page(params[:page])
     @item = Rank.find_by(genre: params[:genre])
   end
+
+  def show
+    @item = Rank.find_by(id: params[:id])
+    @favorite = Favorite.new
+  end
 end
