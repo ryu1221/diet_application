@@ -53,9 +53,3 @@ production:
   database: <%= Rails.application.credentials.rds[:database] %>
   username: <%= Rails.application.credentials.rds[:username] %>
   password: <%= Rails.application.credentials.rds[:password] %>
-
-rds:
-  host: dietappdbinstance.chylzko8hygn.ap-northeast-1.rds.amazonaws.com
-  database: dietdb
-  username: diet_application
-  password: diet_application

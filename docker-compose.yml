@@ -5,6 +5,8 @@ services:
     volumes:
       - ./app:/app
     command: bundle exec puma -C config/puma.rb
+    environment:
+      - EDITOR=vim
     depends_on:
       - db
   nginx:
