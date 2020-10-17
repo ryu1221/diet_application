@@ -25,4 +25,5 @@ services:
       - ./mysql/db.env
     volumes:
       - ./mysql/mysql:/var/lib/mysql
+      - ./tmp/db:/var/lib/mysql/data
       
