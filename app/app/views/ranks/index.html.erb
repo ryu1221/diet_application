@@ -1,3 +1,5 @@
+<%= render 'layouts/category' %>
+
 <section class="index">
   <% @rankings.each do |ranking| %>
     <%= link_to( "#{@item.genre}/#{@item.id + ranking[:rank] - 1}") do %>
