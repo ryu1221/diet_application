@@ -1,4 +1,5 @@
 environment ENV.fetch("RAILS_ENV") { "production" }
+port        ENV.fetch("PORT") { 3000 }
 
 app_root = File.expand_path("../..", __FILE__)
 bind "unix://#{app_root}/tmp/sockets/puma.sock"
