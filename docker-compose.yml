@@ -4,12 +4,12 @@ services:
     build: app
     volumes:
       - ./app:/app
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma/production.rb
     depends_on:
       - db
   nginx:
     build: nginx
-    volumes:
+    volumes: 
       - ./app:/app
       - ./nginx/ssl:/etc/nginx/ssl
     ports:
