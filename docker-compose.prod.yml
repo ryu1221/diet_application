@@ -3,6 +3,7 @@ services:
   app:
     build: app
     tty: true
+    stdin_open: true
     environment: 
       RAILS_ENV: $DOCKER_RAILS_ENV_PRODUCTION
     volumes:
