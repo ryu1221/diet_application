@@ -18,6 +18,7 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 !/tmp/sockets/.keep
+!/tmp/sockets/.puma.sock
 
 # Ignore uploaded files in development.
 /storage/*
