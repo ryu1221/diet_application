@@ -5,6 +5,7 @@ threads threads_count, threads_count
 workers 2
 preload_app!
 
+daemonize
 pidfile "/app/pids/puma.pid"
 stdout_redirect "/app/log/puma.stdout.log", "/app/log/puma.stderr.log", true
 
