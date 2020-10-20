@@ -15,7 +15,8 @@ module App
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.hosts << "localhost"
+    # config.hosts << "localhost"
+    config.hosts << "52.69.80.186"
     config.i18n.default_locale = :ja
   end
 end
