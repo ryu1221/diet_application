@@ -13,19 +13,3 @@ stdout_redirect "#{app_root}/log/puma.stdout.log", "#{app_root}/log/puma.stderr.
 plugin :tmp_restart
 
 
-
-before_fork do
-  PumaWorkerKiller.config do |config|
-    config.ram           = 1024 
-    config.frequency     = 5 * 60 
-    config.percent_usage = 0.9 
-    
-    config.rolling_restart_frequency = 24 * 3600 
-    config.reaper_status_logs = true
-  end
-  PumaWorkerKiller.start
-  ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
-end
-on_worker_boot do
-  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
-end
