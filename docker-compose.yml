@@ -15,7 +15,7 @@ services:
       - ./app:/app
       - ./nginx/ssl:/etc/nginx/ssl
     ports:
-      
+      - 80:80
       - 443:443
     depends_on:
       - app
