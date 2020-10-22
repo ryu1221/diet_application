@@ -20,7 +20,7 @@ module App
     # config.hosts << "localhost"
 
     # 本番環境
-    config.hosts << "52.69.80.186"
+    config.hosts << "www.zerocaro.cf"
     config.i18n.default_locale = :ja
   end
 end
