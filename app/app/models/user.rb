@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: devices
+#
+#  id                        :integer          not null, primary key
+#  name                      :string           not null
+#  email                     :integer          not null, uniqueness: true
+#  password_digest           :string           not null, length:{minimum: 8} 
+#  
+
 class User < ApplicationRecord
   has_secure_password
 

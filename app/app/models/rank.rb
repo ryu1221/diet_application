@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: devices
+#
+#  id             :integer          not null, primary key
+#  rank           :integer
+#  itemName       :string
+#  itemPrice      :integer
+#  reviewAverage  :decimal
+#  mediumImageUrls:string
+#  itemCaption    :text
+#  itemUrl      :string 
+#  genre      :string 
+# 
+
 class Rank < ApplicationRecord
   belongs_to :users, optional: true
   has_many :favorites
