@@ -3,7 +3,7 @@ services:
   app:
     build: app
     environment: 
-      RAILS_ENV: $DOCKER_RAILS_ENV_DEVEROPMENT
+      RAILS_ENV: $DOCKER_RAILS_ENV_PRODUCTION
     volumes:
       - ./app:/app
     command: bundle exec puma -C config/puma.rb
