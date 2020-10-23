@@ -1,9 +1,7 @@
 section.show
   .show__contents
     .show__contents__images
-      |  <img class="show__contents__images__image" src="
-      = @item.mediumImageUrls
-      | "> 
+      = image_tag @item.mediumImageUrls, class: 'show__contents__images__image'
     .show__contents__texts
       h2.show__contents__texts__heading
         = @item.itemName

@@ -10,9 +10,7 @@ section.index
       .index__contents
         .index__contents__content
           .index__contents__content__images
-            |  <img class="index__contents__content__images__image" src="
-            = item.medium_image_urls[0]
-            | " > 
+            = image_tag item.medium_image_urls[0], class: 'index__contents__content__images__image'
           .index__contents__content__texts
             h2.index__contents__content__texts__text
               = truncate(item.name, length:60)

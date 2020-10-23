@@ -19,9 +19,7 @@ section.mypage
         .mypage__index__contents
           .mypage__index__contents__content
             .mypage__index__contents__content__images
-              |  <img class="mypage__index__contents__content__images__image" src="
-              = favorite_rank.mediumImageUrls
-              | " > 
+              = image_tag favorite_rank.mediumImageUrls, class: 'mypage__index__contents__content__images__image'
             .mypage__index__contents__content__texts
               h2.mypage__index__contents__content__texts__text
                 = truncate(favorite_rank.itemName, length:60)
