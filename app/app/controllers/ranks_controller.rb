@@ -1,4 +1,5 @@
 class RanksController < ApplicationController
+  before_action :set_item, only: [:show]
   
   def index
 
@@ -27,7 +28,13 @@ class RanksController < ApplicationController
   end
 
   def show
-    @item = Rank.find_by(id: params[:id])
     @favorite = Favorite.new
+  end
+
+
+
+  private
+  def set_item
+    @item = Rank.find_by(id: params[:id])
   end
 end
