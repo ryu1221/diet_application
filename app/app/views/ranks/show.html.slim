@@ -1,0 +1,45 @@
+section.show
+  .show__contents
+    .show__contents__images
+      |  <img class="show__contents__images__image" src="
+      = @item.mediumImageUrls
+      | "> 
+    .show__contents__texts
+      h2.show__contents__texts__heading
+        = @item.itemName
+      .price_review
+        p.show__contents__texts__price
+          span.fee
+            = @item.itemPrice
+          | 円(税込)
+          span.send-fee
+            | 送料無料
+        - if session[:user_id] != nil
+          - if Favorite.find_by(user_id: @current_user.id, rank_id: @item.id)
+            = form_with url: "/favorite/#{@item.id}",method: "delete", local: true do |f|
+              = f.hidden_field :rank_id, value: @item.id
+              = f.hidden_field :user_id, value: @current_user.id
+              button.favorite-button[type="submit" name="commit" value="" data-disable-with=""]
+                p.show__contents__texts__favorite
+                  i.fas.fa-thumbs-up
+          - else
+            = form_with url: "/favorite", method: "post", local: true do |f|
+              = f.hidden_field :rank_id, value: @item.id, commit: "submit"
+              = f.hidden_field :user_id, value: @current_user.id, commit: "submit"
+              button.favorite-button[type="submit" name="commit" value="" data-disable-with=""]
+                p.show__contents__texts__favorite
+                  i.far.fa-thumbs-up
+        p.show__contents__texts__review
+          = @item.reviewAverage
+          span.reviewMax
+            | /5
+      p.show__contents__texts__info
+        = @item.itemCaption
+  .rakuten
+    = link_to("#{@item.itemUrl}", :target=>["_blank"]) do
+      .rakuten__btn
+        |  楽天詳細ページに行く 
+.return
+  = link_to( "/#{@item.genre}", data: {"turbolinks" => false}) do
+    .return__btn
+      |  ランキングに戻る 

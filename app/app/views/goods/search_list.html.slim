@@ -1,0 +1,27 @@
+= render 'layouts/category'
+.search-result
+  p.search-result__text
+    | 検索結果: 
+    span.search-result__genre
+      = params[:keyword]
+section.index
+  - @items.each do |item|
+    = link_to( item.url, :target=>["_blank"]) do
+      .index__contents
+        .index__contents__content
+          .index__contents__content__images
+            |  <img class="index__contents__content__images__image" src="
+            = item.medium_image_urls[0]
+            | " > 
+          .index__contents__content__texts
+            h2.index__contents__content__texts__text
+              = truncate(item.name, length:60)
+            .price_review
+              p.index__contents__content__texts__price
+                span.fee
+                  = item.price
+                | 円(税込)
+              p.index__contents__content__texts__review
+                = item.review_average
+                span.reviewMax
+                  | /5

@@ -1,0 +1,17 @@
+section.new
+  .new__heading
+    h2.new__heading__text
+      | 新規ユーザー登録
+  .errors
+    - @user.errors.full_messages.each do|message|
+      ul.errors__messages
+        li
+          = message
+  = form_with  model: @user, class: "form_class", local: true do |f|
+    = f.label :name, '名前'
+    = f.text_field :name
+    = f.label :email, 'メールアドレス'
+    = f.email_field :email
+    = f.label :password, 'パスワード'
+    = f.password_field :password
+    = f.submit "新規登録", class: "submit"

@@ -1,0 +1,28 @@
+= render 'layouts/category'
+section.index
+  - @rankings.each do |ranking|
+    = link_to( "#{@item.genre}/#{@item.id + ranking[:rank] - 1}") do
+      .ranks
+        p.ranks__rank
+          = ranking[:rank]
+          span.ranks__i
+            | 位
+      .index__contents
+        .index__contents__content
+          .index__contents__content__images
+            |  <img class="index__contents__content__images__image" src="
+            = ranking[:mediumImageUrls]
+            | " > 
+          .index__contents__content__texts
+            h2.index__contents__content__texts__text
+              = truncate(ranking[:itemName], length:60)
+            .price_review
+              p.index__contents__content__texts__price
+                span.fee
+                  = ranking[:itemPrice]
+                | 円(税込)
+              p.index__contents__content__texts__review
+                = ranking[:reviewAverage]
+                span.reviewMax
+                  | /5
+= paginate @rankings, total_pages: 10

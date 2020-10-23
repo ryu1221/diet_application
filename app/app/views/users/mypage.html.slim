@@ -1,0 +1,36 @@
+section.mypage
+  section.mypage__info
+    .mypage__info__names
+      h2.mypage__info__names__name
+        = @user.name
+        span.mini
+          | さん
+    .mypage__info__favorite
+      .mypage__info__favorite__texts
+        p.mypage__info__favorite__texts__text
+          | お気に入り
+        p.mypage__info__favorite__texts__count
+          | 【 
+          = @favorite_ranks.length
+          |  】
+  section.mypage__index
+    - @favorite_ranks.each do |favorite_rank|
+      = link_to( "#{favorite_rank.itemUrl}",:target=>["_blank"]) do
+        .mypage__index__contents
+          .mypage__index__contents__content
+            .mypage__index__contents__content__images
+              |  <img class="mypage__index__contents__content__images__image" src="
+              = favorite_rank.mediumImageUrls
+              | " > 
+            .mypage__index__contents__content__texts
+              h2.mypage__index__contents__content__texts__text
+                = truncate(favorite_rank.itemName, length:60)
+              .price_review
+                p.mypage__index__contents__content__texts__price
+                  span.fee
+                    = favorite_rank.itemPrice
+                  | 円(税込)
+                p.mypage__index__contents__content__texts__review
+                  = favorite_rank.reviewAverage
+                  span.reviewMax
+                    | /5

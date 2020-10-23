@@ -1,0 +1,59 @@
+header.l-header
+  section.l-header__top
+    .l-header__top__left
+      = link_to("/ranks", data: {"turbolinks" => false}) do
+        h2.l-header__top__left__heading
+          i.fas.fa-apple-alt
+          | ZeroCalo
+    .l-header__top__right
+      .l-header__top__right__bars
+        i.fas.fa-bars.menu
+      .l-header__top__right__texts
+        nav.l-header__top__right__texts__nav
+          p.l-header__top__right__texts__nav__heading
+            i.fas.fa-crown
+            | ランキング
+          ul.l-header__top__right__texts__nav__lists
+            = link_to( "/ranks") do
+              li.l-header__top__right__texts__nav__lists__list
+                | ALL
+            = link_to( "/food") do
+              li.l-header__top__right__texts__nav__lists__list
+                | FOOD
+            = link_to( "/drink") do
+              li.l-header__top__right__texts__nav__lists__list
+                | DRINK
+            = link_to( "/sweets") do
+              li.l-header__top__right__texts__nav__lists__list
+                | SWEETS
+            = link_to( "/suporters") do
+              li.l-header__top__right__texts__nav__lists__list
+                | SUPORT
+            = link_to( "/equipments") do
+              li.l-header__top__right__texts__nav__lists__list
+                | EQUIPMENT
+            = link_to( "/others") do
+              li.l-header__top__right__texts__nav__lists__list
+                | OTHERS
+        = link_to search_goods_path do
+          .l-header__top__right__texts__lists
+            p.l-header__top__right__texts__lists__heading
+              | 商品検索
+        - if session[:user_id]
+          = link_to session_path(@current_user.id) ,{method: "delete"} do
+            .l-header__top__right__texts__lists
+              p.l-header__top__right__texts__lists__heading
+                | ログアウト
+          = link_to user_mypage_path(@current_user.id) do
+            .l-header__top__right__texts__lists
+              p.l-header__top__right__texts__lists__heading
+                | マイページ
+        - else
+          = link_to new_user_path do
+            .l-header__top__right__texts__lists
+              p.l-header__top__right__texts__lists__heading
+                | 新規登録
+          = link_to new_session_path do
+            .l-header__top__right__texts__lists
+              p.l-header__top__right__texts__lists__heading
+                | ログイン
