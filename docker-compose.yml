@@ -3,12 +3,12 @@ services:
   app:
     build: app
     environment: 
-      RAILS_ENV: $DOCKER_RAILS_ENV_PRODUCTION
+      RAILS_ENV: $DOCKER_RAILS_ENV_DEVEROPMENT
     volumes:
       - ./app:/app
     command: bundle exec puma -C config/puma.rb
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
   nginx:
     build: nginx
     volumes: 
@@ -19,11 +19,11 @@ services:
       - 443:443
     depends_on:
       - app
-  # db:
-  #   image: mysql
-  #   command: mysqld --default-authentication-plugin=mysql_native_password
-  #   env_file:
-  #     - app/mysql/db.env
-  #   volumes:
-  #     - ./app/mysql/mysql:/var/lib/mysql
-  #     - ./app/tmp/db:/var/lib/mysql/data
+  db:
+    image: mysql
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    env_file:
+      - ./mysql/db.env
+    volumes:
+      - ./mysql/mysql:/var/lib/mysql
+      - ./tmp/db:/var/lib/mysql/data
