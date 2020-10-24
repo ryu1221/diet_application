@@ -7,8 +7,8 @@ services:
     volumes:
       - ./app:/app
     command: bundle exec puma -C config/puma.rb
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
   nginx:
     build: nginx
     volumes: 
