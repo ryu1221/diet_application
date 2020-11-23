@@ -1,5 +1,5 @@
 = render 'layouts/category'
-section.index
+section.goods_index
   - @rankings.each do |ranking|
     = link_to( "#{@item.genre}/#{@item.id + ranking[:rank] - 1}") do
       .ranks

@@ -64,7 +64,7 @@ window.addEventListener('load', (event) => {
   }, 100);
 
   // 商品一覧(index)スライド
-  const index = document.querySelector('.index');
+  const index = document.querySelector('.goods_index');
   setTimeout(() => {
     index.classList.add('active');
   }, 1000);
