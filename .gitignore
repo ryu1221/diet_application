@@ -45,4 +45,4 @@
 /app/yarn-debug.log*
 /app/.yarn-integrity
 
-/mysql/mysql
+/mysql/mysql/*
