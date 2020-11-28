@@ -40,7 +40,7 @@ header.l-header
             p.l-header__top__right__texts__lists__heading
               | Goods Search
         - if session[:user_id]
-          = link_to training_index_path(@current_user.id) ,{method: "get"} do
+          = link_to training_index_path ,{method: "get"} do
             .l-header__top__right__texts__lists
               p.l-header__top__right__texts__lists__heading
                 | Training

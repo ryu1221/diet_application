@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     @favorite_ranks = @user.favorite_ranks
   end
 
+  def training
+    @trainings = Training.all
+  end
+
 
   private
   def user_params

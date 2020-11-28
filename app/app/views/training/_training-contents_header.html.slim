@@ -1,11 +1,20 @@
 .training-contents_header
-    .training-contents_heading
-      h2.training-contents_heading_content.heading
-        | Tarining List
-    .training-contents_text
-      p.training-contents_text_content
-        | 日々のトレーニングのスケジュールを管理しましょう。
-    .training-contents_btn
-      = link_to(new_training_path) do
-        .new-btn
-          | CREATE NEW TRAINING
+  .training-contents_heading
+    h2.training-contents_heading_content.heading
+      | Tarining List
+  .training-contents_text
+    p.training-contents_text_content
+      | 日々のトレーニングのスケジュールを管理しましょう。
+  .training-contents_btn
+    = link_to(new_training_path) do
+      .new-btn
+        | CREATE NEW TRAINING
+
+  / .training-contents_header_right
+  /   .dropdown-menu name="dropdown-menu"
+  /     a.dropdown-item href="#{training_index_path}"
+  /       | All
+  /     a.dropdown-item href="#{completed_training_index_path}"
+  /       | Completed
+  /     a.dropdown-item href="#{in_completed_training_index_path}"
+  /       | Incompleted

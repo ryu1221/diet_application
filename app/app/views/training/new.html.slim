@@ -3,7 +3,7 @@ section.new-tasks.index
     h2.new-tasks_heading_content.heading
       | NEW TRAINING
 
-  = form_with  url: "/training" ,class: "form_class", local: true do |f|
+  = form_with  url: training_log_index_path ,class: "form_class", method: :post, local: true do |f|
     = f.label :tasks, 'トレーニング名'
     = f.text_field :tasks, id: "tasks"
     = f.label :content, 'トレーニング内容'
@@ -11,4 +11,5 @@ section.new-tasks.index
     = f.label :limit, '日付'
     = f.date_field :limit, id: "limit"
     = f.hidden_field :completed, :value => 0, id: 'task_completed'
+    = f.hidden_field :user_id, :value => @current_user.id
     = f.submit "新規登録", class: "submit"

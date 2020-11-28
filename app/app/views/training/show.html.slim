@@ -11,4 +11,5 @@ section.new-tasks.index
     = f.label :limit, '日付'
     = f.date_field :limit, value: @training.limit , id: "limit"
     = f.hidden_field :completed, :value => 0, id: 'task_completed'
+    = f.hidden_field :user_id, :value => @current_user.id
     = f.submit "更新", class: "submit"

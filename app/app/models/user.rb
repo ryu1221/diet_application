@@ -11,8 +11,11 @@
 class User < ApplicationRecord
   has_secure_password
 
+  # belongs_to :trainings
+
   has_many :ranks
-  has_many :trainings
+  has_many :training_logs
+  has_many :training_index, through: :training_logs, source: :training
   has_many :favorites
   has_many :favorite_ranks, through: :favorites, source: :rank
 
