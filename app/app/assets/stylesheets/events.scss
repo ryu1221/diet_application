@@ -1,0 +1,30 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "parts";
+@import "mixin";
+
+#events{
+  width: 1100px;
+  margin: 100px auto 0;
+  @include media(1100px){
+    width: 900px;
+  }
+  @include media(900px){
+    width: 768px;
+  }
+  @include media(768px){
+    width: 700px;
+  }
+  @include media(414px){
+    width: 375px;
+  }
+  @include media(375px){
+    width: 350px;
+  }
+}
+
+.fc-toolbar-title{
+  color: #000;
+  font-weight: normal;
+}

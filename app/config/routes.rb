@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
   resources :favorite, only: %i(create destroy)
   resources :training_log, only: %i(create destroy)
+  resources :events , only: %i(index)
   
   get '/:genre' => 'ranks#index'
   get '/:genre/:id' => 'ranks#show'
