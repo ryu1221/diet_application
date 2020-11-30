@@ -4,7 +4,10 @@ class TrainingController < ApplicationController
   before_action :set_user
 
   def index
-    @trainings = @user.training_index.order(limit: :asc)
+    @trainings = @user.training_index.order(limit: :asc).page(params[:page])
+    training_array = []
+    training_array.push(@trainings)
+    @training_pagenate = Kaminari.paginate_array(training_array, total_count: 100).page(params[:page])
   end
 
   # def completed
@@ -44,6 +47,14 @@ class TrainingController < ApplicationController
       end
     end
     redirect_to(training_index_path)
+  end
+
+
+  def training_events
+    @trainings = @user.training_index
+    respond_to do |format|
+      format.any { render json: @trainings.to_json( only: [:tasks, :limit] ) }
+    end
   end
 
 

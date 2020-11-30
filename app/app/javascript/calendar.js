@@ -7,15 +7,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, interactionPlugin],
-    selectable: true, 
+    selectable: true,
     navLinks: true,
     locale: 'ja',
-    showNonCurrentDates: false,
+    showNonCurrentDates: true,
+    businessHours: true,
+    timeZone: 'Asia/Tokyo',
     headerToolbar: {
-      start: '', // will normally be on the left. if RTL, will be on the right
+      left: 'today',
       center: 'title',
-      end: 'prev,next' // will normally be on the right. if RTL, will be on the left
+      right: 'prev,next'
     },
+    events: '/events.json',
+    editable: true,
   });
 
   calendar.render();

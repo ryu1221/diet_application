@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root 'ranks#index'
   resources :training, only: %i(index new create destroy update show) do
     get :is_complete
-    # get :completed, on: :collection
-    # get :in_completed, on: :collection
+    get :completed, on: :collection
+    get :in_completed, on: :collection
   end
   resources :sessions, only: %i(new create destroy)
   resources :users, only: %i(new create) do

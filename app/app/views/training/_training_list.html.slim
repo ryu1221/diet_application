@@ -3,7 +3,7 @@
     tr
       th State
       th Training
-      th contents
+      th.contents_none contents
       th Limit
     - for training in trainings
       tr
@@ -14,15 +14,16 @@
           td.state.complete 
             | Complete
         td = training.tasks
-        td = truncate(training.content, length:20)
+        td.contents_none = truncate(training.content, length:15)
         td = training.limit
         td
-          = link_to  training_is_complete_path(training.id), class: 'training-btn'
+          = link_to  training_is_complete_path(training.id), class: 'training-btn complete-btn'
             i.fas.fa-check-circle.complete-btn
         td
           = link_to  training_path(training.id), class: 'training-btn', method: :get
             i.fas.fa-info-circle.edit-btn
         td
-          = link_to  "/training_log/#{training.id}", class: ' training-btn', method: :delete
+          = link_to  "/training_log/#{training.id}", class: ' training-btn delete-btn', method: :delete
             i.fas.fa-times-circle.delete-btn
       
+= paginate @training_pagenate, total_pages: 10

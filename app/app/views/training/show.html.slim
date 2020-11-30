@@ -13,3 +13,5 @@ section.new-tasks.index
     = f.hidden_field :completed, :value => 0, id: 'task_completed'
     = f.hidden_field :user_id, :value => @current_user.id
     = f.submit "更新", class: "submit"
+  a.show_delete href="/training_log/#{@training.id}"
+    |削除
