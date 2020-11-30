@@ -6,21 +6,9 @@
     .training-contents_text
       p.training-contents_text_content
         | 日々のトレーニングのスケジュールを管理しましょう。
-    / .training-contents_btn
-    /   = link_to(new_training_path) do
-    /     .new-btn
-    /       | CREATE NEW TRAINING
-
   .training-contents_header_right
     a.calender href="#{events_path}"
       i.far.fa-calendar-alt
-    / select.dropdown-menu name="dropdown-menu"
-    /   option.dropdown-item href="#{training_index_path}"
-    /     | All
-    /   option.dropdown-item href="#{completed_training_index_path}"
-    /     | Completed
-    /   option.dropdown-item href="#{in_completed_training_index_path}"
-    /     | Incompleted
   
 .training-contents_btn
     = link_to(new_training_path) do

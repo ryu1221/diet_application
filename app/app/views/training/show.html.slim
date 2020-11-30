@@ -2,16 +2,17 @@ section.new-tasks.index
   .new-tasks_heading
     h2.new-tasks_heading_content.heading
       | EDIT TRAINING
-
-  = form_with  model: @trainig, method: :put, class: "form_class", local: true do |f|
-    = f.label :tasks, 'トレーニング名'
-    = f.text_field :tasks, value: @training.tasks, id: "tasks"
-    = f.label :content, 'トレーニング内容'
-    = f.text_area :content, value: @training.content , id: "content"
-    = f.label :limit, '日付'
-    = f.date_field :limit, value: @training.limit , id: "limit"
-    = f.hidden_field :completed, :value => 0, id: 'task_completed'
-    = f.hidden_field :user_id, :value => @current_user.id
-    = f.submit "更新", class: "submit"
-  a.show_delete href="/training_log/#{@training.id}"
-    |削除
+  .form-contents
+    = form_with  model: @trainig, method: :put, class: "form_class", local: true do |f|
+      = f.label :tasks, 'トレーニング名'
+      = f.text_field :tasks, value: @training.tasks, id: "tasks"
+      = f.label :content, 'トレーニング内容'
+      = f.text_area :content, value: @training.content , id: "content"
+      = f.label :limit, '日付'
+      = f.date_field :limit, value: @training.limit , id: "limit"
+      = f.hidden_field :completed, :value => 0, id: 'task_completed'
+      = f.hidden_field :user_id, :value => @current_user.id
+      = f.submit "更新", class: "submit show-btn"
+  .show-btns
+    a.show-btn.show_delete href="/training_log/#{@training.id}"
+      |削除

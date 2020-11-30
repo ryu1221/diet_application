@@ -140,6 +140,10 @@ td{
   }
 }
 
+.tasks{
+  color: #000;
+}
+
 .contents_none{
   @include media(414px){
     display: none;
@@ -153,26 +157,23 @@ td{
   background-color: $delete_red;
 }
 
-.training-btn{
+.complete-btn{
+  color: $whiteblue;
+  margin: 0 0 0 5px;
   font-size: 30px;
   @include media(900px){
     font-size: 27px;
   }
 }
 
-.complete-btn{
-  color: $whiteblue;
-  margin: 0 0 0 5px;
+.search{
+  margin: 40px 0 0;
+  display: flex;
+  gap: 50px;
 }
-.edit-btn{
-  color: $blue;
-}
-.delete-btn{
-  color: $delete_red;
-
-  @include media(414px){
-    display: none;
-  }
+.search_state{
+  color: #000;
+  
 }
 
 
@@ -200,20 +201,7 @@ label{
   height: 50px;
 }
 
-
-
-.submit{
-  width: 100px;
-  height: 30px;
-  margin: 50px 0 0;
-  background-color: $whiteblue;
-  color: $white;
-  border-radius: 5px;
-  border: none;
-}
-
-.show_delete{
-  background-color: $delete_red;
+.show-btn{
   color: $white;
   text-align: center;
   display: inline-block;
@@ -222,4 +210,21 @@ label{
   line-height: 30px;
   margin: 10px 0 0;
   border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px rgba($color: #000000, $alpha: 0.3);
+}
+
+
+.submit{
+  border: none;
+  margin: 50px 0 0;
+  background-color: $blue;
+}
+
+.show-btns{
+  display: flex;
+  flex-direction: column;
+}
+
+.show_delete{
+  background-color: $delete_red;
 }

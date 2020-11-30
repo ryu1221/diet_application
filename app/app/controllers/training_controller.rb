@@ -4,19 +4,17 @@ class TrainingController < ApplicationController
   before_action :set_user
 
   def index
-    @trainings = @user.training_index.order(limit: :asc).page(params[:page])
+    if params[:state] == "all"
+      @trainings = @user.training_index.order(limit: :asc).page(params[:page])
+    elsif params[:state] == "complete"
+      @trainings = @user.training_index.where("completed = 1").order(limit: :asc).page(params[:page])
+    elsif params[:state] == "in_complete"
+      @trainings = @user.training_index.where("completed = 0").order(limit: :asc).page(params[:page])
+    end
     training_array = []
     training_array.push(@trainings)
     @training_pagenate = Kaminari.paginate_array(training_array, total_count: 100).page(params[:page])
   end
-
-  # def completed
-  #   @trainings = @user.training_index.where("completed = 1").order(limit: :asc)
-  # end
-
-  # def in_completed
-  #   @trainings = @user.training_index.where("completed = 0").order(limit: :asc)
-  # end
 
   def show
   end
