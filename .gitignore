@@ -46,3 +46,4 @@
 /app/.yarn-integrity
 
 /mysql/mysql/*
+.history
